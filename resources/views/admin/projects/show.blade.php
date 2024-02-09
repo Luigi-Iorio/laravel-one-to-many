@@ -11,6 +11,10 @@
             <p>{{ $project->slug }}</p>
         </div>
         <div class="cont">
+            <h5>Type: </h5>
+            <p>{{ $project->type->type_title ?? 'Da inserire' }}</p>
+        </div>
+        <div class="cont">
             <h5>Stack:</h5>
             <p>{{ $project->stack }}</p>
         </div>
