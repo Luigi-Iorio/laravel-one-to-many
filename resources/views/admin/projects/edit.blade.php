@@ -22,11 +22,25 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="col-12">
+            <div class="col-md-6">
                 <label for="slug" class="form-label">Slug</label>
                 <input type="text" id="slug" name="slug" class="form-control"
                     value="{{ old('slug', $project->slug) }}">
                 @error('slug')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col-md-6">
+                <label for="select">Seleziona Tipo</label>
+                <select class="form-select mt-2" id="select" name="type_id">
+                    <option value="" selected>Apri menu</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}" @if (old('type_id', $project->type_id) == $type->id) selected @endif>
+                            {{ $type->type_title }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('type_id')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>

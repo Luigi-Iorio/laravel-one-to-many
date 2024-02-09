@@ -19,6 +19,20 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="col-md-6">
+                <label for="select">Seleziona Tipo</label>
+                <select class="form-select" id="select" name="type_id">
+                    <option value="" selected>Apri menu</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}" @if (old('type_id') == $type->id) selected @endif>
+                            {{ $type->type_title }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('type_id')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
             <div class="col-12">
                 <label for="description" class="form-label">Descrizione</label>
                 <textarea class="form-control" name="description" id="description">{{ old('description') }}</textarea>
