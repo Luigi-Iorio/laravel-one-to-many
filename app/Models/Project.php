@@ -14,5 +14,5 @@ class Project extends Model
         return $this->belongsTo(Type::class);
     }
 
-    protected $guarded = [];
+    protected $guarded = ['slug'];
 }

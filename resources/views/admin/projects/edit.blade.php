@@ -23,9 +23,9 @@
                 @enderror
             </div>
             <div class="col-md-6">
-                <label for="slug" class="form-label">Slug</label>
-                <input type="text" id="slug" name="slug" class="form-control"
-                    value="{{ old('slug', $project->slug) }}">
+                <label for="slug" class="form-label">Slug - Modifica Automatica</label>
+                <input type="text" id="slug" name="slug" class="form-control bg-secondary text-light"
+                    value="{{ old('slug', $project->slug) }}" disabled>
                 @error('slug')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
