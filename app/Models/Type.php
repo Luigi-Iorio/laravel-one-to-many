@@ -13,4 +13,6 @@ class Type extends Model
     {
         return $this->hasOne(Project::class);
     }
+
+    protected $guarded = [];
 }
