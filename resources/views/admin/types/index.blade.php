@@ -21,7 +21,7 @@
                         <td>{{ $type->type_title }}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="#" class="btn btn-secondary">Modifica</a>
+                                <a href="{{ route('admin.types.edit', $type->id) }}" class="btn btn-secondary">Modifica</a>
                             </div>
                         </td>
                     </tr>
