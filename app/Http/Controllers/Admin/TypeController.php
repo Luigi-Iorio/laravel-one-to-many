@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TypeRequest;
 use App\Models\Type;
-use Illuminate\Http\Request;
 
 class TypeController extends Controller
 {
@@ -29,9 +29,9 @@ class TypeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TypeRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
         $newTipe = new Type();
 
@@ -61,9 +61,9 @@ class TypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Type $type)
+    public function update(TypeRequest $request, Type $type)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
         $type->update($data);
 
