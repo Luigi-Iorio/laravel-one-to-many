@@ -3,8 +3,15 @@
 @section('content')
     <div class="container create py-5">
         <h2 class="mb-5">Inserisci un nuovo Progetto</h2>
-        <form action="{{ route('admin.projects.store') }}" method="POST" class="row g-3">
+        <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data" class="row g-3">
             @csrf
+            <div class="col-md-6">
+                <label for="img_project" class="form-label">Immagine</label>
+                <input type="file" class="form-control" id="img_project" name="img_project">
+                @error('img_project')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
             <div class="col-md-6">
                 <label for="title" class="form-label">Titolo</label>
                 <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
@@ -21,7 +28,7 @@
             </div>
             <div class="col-md-6">
                 <label for="select">Seleziona Tipo</label>
-                <select class="form-select" id="select" name="type_id">
+                <select class="form-select mt-2" id="select" name="type_id">
                     <option value="" selected>Apri menu</option>
                     @foreach ($types as $type)
                         <option value="{{ $type->id }}" @if (old('type_id') == $type->id) selected @endif>

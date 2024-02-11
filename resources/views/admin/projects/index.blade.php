@@ -29,10 +29,13 @@
         <ul class="row p-0 g-3">
             @foreach ($projects as $project)
                 <li class="card col-8 mx-auto p-0 rounded-4">
-                    <div class="card-header p-4">
-                        <h3 class="m-0">{{ $project->title }}</h3>
-                    </div>
+                    @if ($project->img_project)
+                        <img src="{{ asset('storage/' . $project->img_project) }}" class="card-img-top" alt="card-img">
+                    @endif
                     <div class="card-body p-4">
+                        <div class="card-title mb-4">
+                            <h3 class="m-0">{{ $project->title }}</h3>
+                        </div>
                         <div class="cont">
                             <h5>Slug:</h5>
                             <p>{{ $project->slug }}</p>

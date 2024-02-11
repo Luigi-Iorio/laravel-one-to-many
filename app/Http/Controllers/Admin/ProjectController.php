@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Models\Type;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProjectController extends Controller
@@ -40,6 +41,7 @@ class ProjectController extends Controller
         $data = $request->validated();
 
         $newProject = new Project();
+        $newProject->img_project = Storage::put('uploads', $data['img_project']);;
         $newProject->title = $data['title'];
         $newProject->slug = Str::of($newProject->title)->slug('-');
         $newProject->stack = $data['stack'];
@@ -76,6 +78,7 @@ class ProjectController extends Controller
         $data = $request->validated();
 
         $project->slug = Str::of($data['title'])->slug('-');
+        $project->img_project = Storage::put('uploads', $data['img_project']);;
         $project->update($data);
 
         return redirect()->route('admin.projects.index')->with('message', 'Il progetto è stato modificato correttamente');

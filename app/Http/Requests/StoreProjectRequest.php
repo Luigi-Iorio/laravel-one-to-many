@@ -22,6 +22,7 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'img_project' => 'nullable|image',
             'title' => 'unique:projects|max:50',
             'stack' => 'required|max:60',
             'description' => 'max:500',
@@ -32,6 +33,7 @@ class StoreProjectRequest extends FormRequest
     public function messages()
     {
         return [
+            'img_project.image' => 'Il file deve essere un\'immagine',
             'title.unique' => 'Il campo titolo deve essere univoco',
             'title.max' => 'Il campo titolo deve essere minore di 50 caratteri',
             'stack.required' => 'Il campo stack è obbligatorio',
