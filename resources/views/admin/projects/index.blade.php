@@ -18,6 +18,13 @@
         @endif
         {{-- /messaggi alla cancellazione, modifica, creazione del progetto --}}
 
+        {{-- title --}}
+        <div class="d-flex align-items-center justify-content-between mb-5">
+            <h2 class="text-light">Elenco Progetti</h2>
+            <a href="{{ route('admin.projects.create') }}" class="btn btn-success">Aggiungi Progetto</a>
+        </div>
+        {{-- title --}}
+
         {{-- lista progetti --}}
         <ul class="row p-0 g-3">
             @foreach ($projects as $project)

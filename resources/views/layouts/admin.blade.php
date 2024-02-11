@@ -72,8 +72,8 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
-                                        href="{{ route('admin.projects.create') }}">
-                                        <i class="fa-solid fa-plus fa-lg fa-fw"></i> Nuovo Progetto
+                                        href="{{ route('admin.types.index') }}">
+                                        <i class="fa-regular fa-eye fa-lg fa-fw"></i> Visualizza Tipi
                                     </a>
                                 </li>
                             </ul>
