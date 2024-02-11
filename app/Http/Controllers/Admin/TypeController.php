@@ -73,8 +73,13 @@ class TypeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Type $type)
     {
-        //
+        // Dissocia i progetti associati impostando type_id a null
+        $type->project()->update(['type_id' => null]);
+
+        $type->delete();
+
+        return redirect()->route('admin.types.index');
     }
 }

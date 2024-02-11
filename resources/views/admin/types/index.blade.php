@@ -20,8 +20,13 @@
                         <th scope="row">{{ $key }}</th>
                         <td>{{ $type->type_title }}</td>
                         <td>
-                            <div class="d-flex">
+                            <div class="d-flex gap-3">
                                 <a href="{{ route('admin.types.edit', $type->id) }}" class="btn btn-secondary">Modifica</a>
+                                <form action="{{ route('admin.types.destroy', $type->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger">Elimina</button>
+                                </form>
                             </div>
                         </td>
                     </tr>
